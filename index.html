@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta tag para responsividade - essencial para compatibilidade mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Painel de Controlo</title>
+    
+    <!-- Conexão do CSS ao HTML -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Fonts - Fonte moderna e legível -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 
+        ESTRUTURA DO DASHBOARD
+        ======================
+        Usamos uma estrutura com sidebar + conteúdo principal
+        - O container principal usa CSS Grid para layout de 2 colunas
+        - A sidebar usa Flexbox para organizar os items verticalmente
+        - O conteúdo principal usa Grid para organizar os cards
+    -->
+    
+    <div class="dashboard">
+        
+        <!-- ========================================
+             SIDEBAR - Barra Lateral de Navegação
+             ========================================
+             Elemento <aside> - HTML semântico para conteúdo secundário
+             Usa Flexbox para organizar elementos verticalmente
+        -->
+        <aside class="sidebar">
+            
+            <!-- Logo/Marca do Dashboard -->
+            <div class="sidebar__logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Xuelin</span>
+            </div>
+            
+            <!-- 
+                Navegação Principal
+                <nav> - Elemento semântico para navegação
+                <ul> e <li> - Lista não ordenada para items de menu
+            -->
+            <nav class="sidebar__nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link nav-link--active">
+                            <span class="nav-icon">🏠</span>
+                            <span class="nav-text">Início</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon">📊</span>
+                            <span class="nav-text">Estatísticas</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon">👥</span>
+                            <span class="nav-text">Utilizadores</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon">📁</span>
+                            <span class="nav-text">Projetos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon">📅</span>
+                            <span class="nav-text">Calendário</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">Definições</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- 
+                Perfil do Utilizador no fundo da sidebar
+                Usa margin-top: auto para empurrar para baixo (truque Flexbox)
+            -->
+            <div class="sidebar__profile">
+                <div class="profile-avatar">XL</div>
+                <div class="profile-info">
+                    <span class="profile-name">Xuelin</span>
+                    <span class="profile-role">Estudante</span>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- ========================================
+             CONTEÚDO PRINCIPAL
+             ========================================
+             Elemento <main> - HTML semântico para conteúdo principal
+        -->
+        <main class="main-content">
+            
+            <!-- 
+                HEADER DO CONTEÚDO
+                <header> - Elemento semântico para cabeçalho
+            -->
+            <header class="content-header">
+                <div class="header-left">
+                    <!-- Botão hamburger para mobile - visível apenas em ecrãs pequenos -->
+                    <button class="menu-toggle" aria-label="Abrir menu">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                    <h1 class="page-title">Painel de Controlo</h1>
+                </div>
+                <div class="header-right">
+                    <!-- Barra de pesquisa -->
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input 
+                            type="search" 
+                            class="search-input" 
+                            placeholder="Pesquisar..."
+                            aria-label="Pesquisar no dashboard"
+                        >
+                    </div>
+                    <!-- Notificações -->
+                    <button class="notification-btn" aria-label="Ver notificações">
+                        <span class="notification-icon">🔔</span>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+            </header>
+            
+            <!-- 
+                SECÇÃO DE ESTATÍSTICAS
+                ========================
+                <section> - Elemento semântico para agrupar conteúdo relacionado
+                Usa CSS Grid para criar layout responsivo de cards
+            -->
+            <section class="stats-section" aria-labelledby="stats-title">
+                <h2 id="stats-title" class="visually-hidden">Estatísticas Gerais</h2>
+                
+                <!-- Cards de estatísticas - Grid de 4 colunas em desktop -->
+                <div class="stats-grid">
+                    
+                    <!-- Card 1 - Visitantes -->
+                    <article class="stat-card stat-card--visitors">
+                        <div class="stat-icon">👁️</div>
+                        <div class="stat-content">
+                            <span class="stat-value">12,847</span>
+                            <span class="stat-label">Visitantes</span>
+                        </div>
+                        <span class="stat-trend stat-trend--up">+12.5%</span>
+                    </article>
+                    
+                    <!-- Card 2 - Vendas -->
+                    <article class="stat-card stat-card--sales">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-content">
+                            <span class="stat-value">€8,459</span>
+                            <span class="stat-label">Vendas</span>
+                        </div>
+                        <span class="stat-trend stat-trend--up">+8.2%</span>
+                    </article>
+                    
+                    <!-- Card 3 - Encomendas -->
+                    <article class="stat-card stat-card--orders">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-content">
+                            <span class="stat-value">1,249</span>
+                            <span class="stat-label">Encomendas</span>
+                        </div>
+                        <span class="stat-trend stat-trend--down">-2.4%</span>
+                    </article>
+                    
+                    <!-- Card 4 - Novos Clientes -->
+                    <article class="stat-card stat-card--customers">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-content">
+                            <span class="stat-value">384</span>
+                            <span class="stat-label">Novos Clientes</span>
+                        </div>
+                        <span class="stat-trend stat-trend--up">+18.7%</span>
+                    </article>
+                </div>
+            </section>
+            
+            <!-- 
+                SECÇÃO PRINCIPAL COM GRÁFICO E ATIVIDADE
+                =========================================
+                Layout de 2 colunas usando CSS Grid
+            -->
+            <section class="content-grid">
+                
+                <!-- Área do Gráfico -->
+                <article class="chart-card">
+                    <header class="card-header">
+                        <h3 class="card-title">Visão Geral de Vendas</h3>
+                        <div class="card-actions">
+                            <button class="btn-filter btn-filter--active">Semana</button>
+                            <button class="btn-filter">Mês</button>
+                            <button class="btn-filter">Ano</button>
+                        </div>
+                    </header>
+                    
+                    <!-- Gráfico de barras feito com CSS puro -->
+                    <div class="chart-container">
+                        <div class="chart-bars">
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="--bar-height: 65%"></div>
+                                <span class="chart-label">Seg</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="--bar-height: 85%"></div>
+                                <span class="chart-label">Ter</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="--bar-height: 45%"></div>
+                                <span class="chart-label">Qua</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="--bar-height: 90%"></div>
+                                <span class="chart-label">Qui</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar" style="--bar-height: 70%"></div>
+                                <span class="chart-label">Sex</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar chart-bar--weekend" style="--bar-height: 55%"></div>
+                                <span class="chart-label">Sáb</span>
+                            </div>
+                            <div class="chart-bar-group">
+                                <div class="chart-bar chart-bar--weekend" style="--bar-height: 40%"></div>
+                                <span class="chart-label">Dom</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Lista de Atividade Recente -->
+                <article class="activity-card">
+                    <header class="card-header">
+                        <h3 class="card-title">Atividade Recente</h3>
+                        <a href="#" class="card-link">Ver tudo</a>
+                    </header>
+                    
+                    <!-- 
+                        Lista de atividades
+                        Usa Flexbox para alinhar avatar, texto e hora
+                    -->
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <div class="activity-avatar activity-avatar--green">MR</div>
+                            <div class="activity-content">
+                                <p class="activity-text">
+                                    <strong>Maria Rodrigues</strong> fez uma nova encomenda
+                                </p>
+                                <time class="activity-time">Há 5 minutos</time>
+                            </div>
+                        </li>
+                        <li class="activity-item">
+                            <div class="activity-avatar activity-avatar--blue">JS</div>
+                            <div class="activity-content">
+                                <p class="activity-text">
+                                    <strong>João Silva</strong> registou-se na plataforma
+                                </p>
+                                <time class="activity-time">Há 23 minutos</time>
+                            </div>
+                        </li>
+                        <li class="activity-item">
+                            <div class="activity-avatar activity-avatar--purple">AC</div>
+                            <div class="activity-content">
+                                <p class="activity-text">
+                                    <strong>Ana Costa</strong> deixou uma avaliação
+                                </p>
+                                <time class="activity-time">Há 1 hora</time>
+                            </div>
+                        </li>
+                        <li class="activity-item">
+                            <div class="activity-avatar activity-avatar--orange">PF</div>
+                            <div class="activity-content">
+                                <p class="activity-text">
+                                    <strong>Pedro Fernandes</strong> atualizou o perfil
+                                </p>
+                                <time class="activity-time">Há 2 horas</time>
+                            </div>
+                        </li>
+                        <li class="activity-item">
+                            <div class="activity-avatar activity-avatar--pink">SR</div>
+                            <div class="activity-content">
+                                <p class="activity-text">
+                                    <strong>Sofia Reis</strong> completou um projeto
+                                </p>
+                                <time class="activity-time">Há 3 horas</time>
+                            </div>
+                        </li>
+                    </ul>
+                </article>
+            </section>
+            
+            <!-- 
+                SECÇÃO DA TABELA DE PROJETOS
+                =============================
+                <table> - Elemento semântico para dados tabulares
+                Responsiva com scroll horizontal em mobile
+            -->
+            <section class="projects-section" aria-labelledby="projects-title">
+                <header class="section-header">
+                    <h2 id="projects-title" class="section-title">Projetos Recentes</h2>
+                    <button class="btn-primary">+ Novo Projeto</button>
+                </header>
+                
+                <div class="table-container">
+                    <table class="projects-table">
+                        <!-- 
+                            <thead> - Cabeçalho da tabela (semântico)
+                            <th> - Célula de cabeçalho com scope para acessibilidade
+                        -->
+                        <thead>
+                            <tr>
+                                <th scope="col">Projeto</th>
+                                <th scope="col">Responsável</th>
+                                <th scope="col">Prazo</th>
+                                <th scope="col">Progresso</th>
+                                <th scope="col">Estado</th>
+                            </tr>
+                        </thead>
+                        <!-- <tbody> - Corpo da tabela (semântico) -->
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="project-name">
+                                        <span class="project-icon">🎨</span>
+                                        Redesign Website
+                                    </div>
+                                </td>
+                                <td>Maria Rodrigues</td>
+                                <td>15 Dez 2025</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 75%"></div>
+                                    </div>
+                                    <span class="progress-text">75%</span>
+                                </td>
+                                <td><span class="status-badge status-badge--progress">Em Progresso</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="project-name">
+                                        <span class="project-icon">📱</span>
+                                        App Mobile
+                                    </div>
+                                </td>
+                                <td>João Silva</td>
+                                <td>22 Dez 2025</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 45%"></div>
+                                    </div>
+                                    <span class="progress-text">45%</span>
+                                </td>
+                                <td><span class="status-badge status-badge--progress">Em Progresso</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="project-name">
+                                        <span class="project-icon">🛒</span>
+                                        E-commerce
+                                    </div>
+                                </td>
+                                <td>Ana Costa</td>
+                                <td>10 Dez 2025</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill progress-fill--complete" style="width: 100%"></div>
+                                    </div>
+                                    <span class="progress-text">100%</span>
+                                </td>
+                                <td><span class="status-badge status-badge--complete">Concluído</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="project-name">
+                                        <span class="project-icon">📊</span>
+                                        Dashboard Analytics
+                                    </div>
+                                </td>
+                                <td>Pedro Fernandes</td>
+                                <td>30 Dez 2025</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 20%"></div>
+                                    </div>
+                                    <span class="progress-text">20%</span>
+                                </td>
+                                <td><span class="status-badge status-badge--pending">Pendente</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- 
+                FOOTER DO CONTEÚDO
+                ==================
+                <footer> - Elemento semântico para rodapé
+            -->
+            <footer class="content-footer">
+                <p class="footer-text">
+                    © 2025 Dashboard Xuelin. Feito com ❤️ para aprender HTML e CSS.
+                </p>
+            </footer>
+            
+        </main>
+    </div>
+    
+</body>
+</html>
+
